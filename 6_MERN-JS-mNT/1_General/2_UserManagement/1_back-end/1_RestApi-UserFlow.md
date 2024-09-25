@@ -4,13 +4,13 @@
 
 ## 🔶 - <span style="background:#d4b106"><font color="#ffffff">Register / Login / Logout</font></span>
 
-
-
 ### 1️⃣ NodeJS - ExpressJS - MongoDB
 
 #### 💻 VS Code
 
-🧩 **in models.js**
+##### Register
+
+🧩 **in userModels.js**
 
 ```js
 
@@ -46,24 +46,22 @@ export default User
 
 ```js
 
-
 import { registerUser, loginUser, logoutUser } from '...controller.js'
+import { registerUser } from '...controller.js'
 
 // We use the method post because we
 
 router.post('register', registerUser)
-router.post('login', loginUser)
-router.post('logout', logoutUser )
+// router.post('login', loginUser)
+// router.post('logout', logoutUser )
 
 ```
-
 --
-
 
 🧩 **in controller.js**
 
-
 ```js
+
 
 import express from express
 import User from 'userModel..'
@@ -154,6 +152,34 @@ export const Register = asyncHanlder(
 )
 
 
+```
+
+---
+##### Login
+
+
+🧩 **in userRouter.js**
+
+```js
+
+import { loginUser} from '...controller.js'
+
+router.post('login', loginUser)
+
+```
+
+--
+
+🧩 **in controller.js**
+
+```js
+
+import express from express
+import User from 'userModel..'
+import bcrypt from 'bcrypt'
+import { createToken } from ''
+
+
 // ------------------------------------------------------------------ //
 // ------------------------------- LOGIN ---------------------------- //
 // ------------------------------------------------------------------ //
@@ -208,6 +234,29 @@ export const LoginUser = asyncHandler(
 )
 
 
+
+```
+
+---
+
+##### Logout
+
+🧩 **in userRouter.js**
+
+```js
+
+import { logout} from '...controller.js'
+
+router.post('logout', loginUser)
+
+```
+
+--
+
+🧩 **in Controller.js**
+
+```js
+
 // ------------------------------------------------------------------ //
 // ------------------------------- LOGOUT ---------------------------- //
 // ------------------------------------------------------------------ //
@@ -243,12 +292,8 @@ export const logoutUser = asyncHandler(
 )
 
 
+
 ```
-
-
---
-
-- 🧩 **in file**
 
 #### Diagram - Analogy
 
